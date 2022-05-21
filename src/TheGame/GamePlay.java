@@ -34,16 +34,15 @@ import javax.sound.sampled.Clip;
 public class GamePlay extends JPanel implements KeyListener, ActionListener{
     
     
-  
-//  ArrayList<backgraund> blocks = new ArrayList<>();
-    Image background;
+      Image background;
    
     
     private boolean play=false;
     private int score=0; // the score
+    
     private int totalBricks=21; //the total of destried bricks
     private Timer timer;
-    private int delay=6; //the ball postponed (lateined)
+    private int delay=8; //the ball postponed (lateined)
     
     private int playerX=310;
     
@@ -117,7 +116,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
                  //winning
         if(totalBricks<=0) {
         	play=false;
-        	ballYDir =0;
+        	ballYDir=0;
         	ballXDir=0;
         	g.setColor(Color.white);
             g.setFont(new Font("serif",Font.BOLD,30));
@@ -184,11 +183,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 			ballPosY=350;
 			ballXDir = -1;
 			ballYDir=-2;
+                        
 			score = 0;
+                        
 			playerX=310;
                         totalBricks = 21;
 			mapG = new MapGenerator(3,7);
-			repaint();
+			
+                        repaint();
 		}
 	}
 }
@@ -218,16 +220,15 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
         
         
     	timer.start();
-        //Random random = new Random();
-        //  int n= random.nextInt(2+1-2)-2;
+       
         
     	if(play) {
     		if(new Rectangle(ballPosX, ballPosY, 20, 20).intersects(new Rectangle(playerX, 510, 100, 8))){//the paddel postion while playing
     			
     			ballYDir = -ballYDir;
-                        ballXDir=-2;
+                       
                 }  
-                       /* else if(new Rectangle(ballPosX, ballPosY, 20, 20).intersects(new Rectangle(playerX + 70, 550, 30, 8)))
+                        else if(new Rectangle(ballPosX, ballPosY, 20, 20).intersects(new Rectangle(playerX + 70, 550, 30, 8)))
 			{
 				ballYDir = -ballYDir;
 				ballXDir = ballXDir + 1;
@@ -235,7 +236,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 			else if(new Rectangle(ballPosX, ballPosY, 20, 20).intersects(new Rectangle(playerX + 30, 550, 40, 8)))
 			{
 				ballYDir = -ballYDir;
-			}*/
+			}
                         
                       
     		A:
@@ -269,8 +270,9 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     							totalBricks--;
                                                         
   							// when ball hit right or left of brick
-    							if(ballPosX+19 <= brickrect.x||ballPosX+1 >= brickrect.x+ brickrect.width) {
-    								ballXDir =- ballXDir;
+    							if(ballPosX + 19 <= brickrect.x||ballPosX+1 >= brickrect.x+ brickrect.width) {
+    								
+                                                            ballXDir =- ballXDir;
                                                                
     							}
                                                          // when ball hits top or bottom of brick
@@ -296,18 +298,15 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     		if(ballPosX > 670) {//right border
     			ballXDir = -ballXDir;
     		}
-        }
+        
     		
     	 repaint();//recalling the method   
         
-}
-       
-
-
+        } 
     }
+}
 
 
 
   
-       
-
+      
