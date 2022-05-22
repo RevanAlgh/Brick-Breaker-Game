@@ -24,10 +24,10 @@ import javax.sound.sampled.FloatControl;
     public class MainClass implements ActionListener{
        
      //File file;
-    ImageIcon imageForOne = new ImageIcon(getClass().getResource("/TheGame//YOUR.jpeg")); 
+    ImageIcon imageForOne = new ImageIcon(getClass().getResource("/TheGame//YOUR.jpeg"));  
+    JFrame frame = new JFrame("Revan's Brick Breaker Game");
     JButton B2 = new JButton("WELCOME<3 CLICK TO START!");//the start button 
     JButton B3 = new JButton("MUSIC!");//the music button 
-    JFrame frame = new JFrame("Revan's Brick Breaker Game");
     JButton B = new JButton(imageForOne);//the background
     
     public void paint(Graphics g){
@@ -46,7 +46,6 @@ import javax.sound.sampled.FloatControl;
     B2.setSize(250,190);
     B2.setFocusable(false);
     B2.addActionListener(this);
-    B.setBackground(Color.BLACK);
     B2.setForeground(Color.WHITE);
     
        
