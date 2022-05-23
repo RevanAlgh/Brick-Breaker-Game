@@ -45,7 +45,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     
     private int playerX=310;  // the paddle
     
-    private int ballPosX=120; // x postion for the ball
+    private int ballPosX=300; // x postion for the ball
     private int ballPosY=350;// y postion for the ball
     
     private int ballXDir=-1; // x diraction for the ball
@@ -117,10 +117,10 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
         	ballXDir=0;
         	g.setColor(Color.white);
             g.setFont(new Font("serif",Font.BOLD,30));
-            g.drawString("You Won! : ", 260, 300);
+            g.drawString("You Won!", 260, 300);
             
             g.setFont(new Font("serif",Font.BOLD,20));
-            g.drawString("Press Enter to Restart ", 230, 350);
+            g.drawString("Press Enter to Restart", 230, 350);
 
         	
         }
@@ -135,7 +135,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
             g.drawString("Game Over Score: "+score, 190, 300);
             
             g.setFont(new Font("serif",Font.BOLD,20));
-            g.drawString("Press Enter to Restart ", 230, 350);
+            g.drawString("Press Enter to Restart", 230, 350);
 
         }
         
@@ -149,7 +149,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
          
 	  if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
 		if(playerX>=600) {
-                    //checking if the player didtn get out of the broder
+                    //checking if the player didnt get out of the broder
 			
                     playerX = 600;// the bonded on the border <stay>
 		
@@ -162,7 +162,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
           
 	if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 		if(playerX<10) {
-                    //checking if the player didtn get out of the broder
+                    //checking if the player didnt get out of the broder
 
 			playerX = 10; //keep it 
 		}
@@ -252,7 +252,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     						int brickWidth = mapG.brichWidth;
     						int brickHight = mapG.brichHeight;
     						
-    						Rectangle rect = new Rectangle(brickX,brickY,brickWidth,brickHight);
+    						Rectangle rect = new Rectangle(brickX,brickY,brickWidth,brickHight);//the rect around the brick
     						Rectangle ballrect = new Rectangle(ballPosX,ballPosY,20,20); 
     						Rectangle brickrect = rect;
     						
