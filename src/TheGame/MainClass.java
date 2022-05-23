@@ -2,7 +2,6 @@
   package TheGame;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -74,20 +73,16 @@ import javax.sound.sampled.FloatControl;
  }
     
     
- 
-    //the buttuns actions
 
+
+    @Override
  public void actionPerformed(ActionEvent e) {
   
   if(e.getSource()==B2) {
    frame.dispose();
       try {
           Welcome R = new Welcome();
-      } catch (IOException ex) {
-          Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (UnsupportedAudioFileException ex) {
-          Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (LineUnavailableException ex) {
+      } catch (IOException | UnsupportedAudioFileException | LineUnavailableException ex) {
           Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
       }
 }  
@@ -97,11 +92,7 @@ import javax.sound.sampled.FloatControl;
       
       try {
           playSound();
-      } catch (LineUnavailableException ex) {
-          Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (IOException ex) {
-          Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (UnsupportedAudioFileException ex) {
+      } catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
           Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
