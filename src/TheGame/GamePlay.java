@@ -35,8 +35,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     
     
       Image background;
-   
-    
+
     private boolean play=false;
     private int score=0; // the score
     
@@ -44,7 +43,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     private Timer timer;
     private int delay=7; //the ball postponed (how late it can be)
     
-    private int playerX=310;
+    private int playerX=310;  // the paddle
     
     private int ballPosX=120; // x postion for the ball
     private int ballPosY=350;// y postion for the ball
@@ -86,7 +85,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     public void paint(Graphics g){
         
          //background//
-          super.paintComponent(g);
+         super.paintComponent(g);
         g.drawImage(background, 0, 0, null);
            
         //borders /*
@@ -97,8 +96,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
         
         //the score
         g.setColor(Color.white);
-        
-        // the scores
         g.setFont(new Font("serif",Font.BOLD,25));
         g.drawString(""+score, 590, 30);
         
@@ -147,6 +144,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     }
     
     
+      @Override
      public void keyPressed(KeyEvent e){
          
 	  if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
@@ -196,9 +194,11 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 }
      
 
+      @Override
      public void keyTyped(KeyEvent e) { }
      
    
+      @Override
      public void keyReleased(KeyEvent e) { }
 
      
@@ -216,6 +216,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 
 }
      
+      @Override
     public void actionPerformed(ActionEvent e){
         
         
@@ -259,11 +260,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
     							mapG.setBrickValue(0, i, j);
                                                         try {
                                                             playSound();
-                                                        } catch (UnsupportedAudioFileException ex) {
-                                                            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
-                                                        } catch (IOException ex) {
-                                                            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
-                                                        } catch (LineUnavailableException ex) {
+                                                        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
                                                             Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
                                                         }
                                                         score+=5;
@@ -309,4 +306,5 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener{
 
 
   
-      
+       
+
