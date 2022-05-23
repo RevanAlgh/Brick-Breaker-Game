@@ -22,22 +22,23 @@ import javax.sound.sampled.FloatControl;
 
     
     public class MainClass implements ActionListener{
+        
+        // the Main 
+    public static void main(String[] args) {
+
+                MainClass m = new MainClass();                  
+           
+               
+    }
        
      //File file;
-    ImageIcon imageForOne = new ImageIcon(getClass().getResource("/TheGame//YOUR.jpeg"));  
+    ImageIcon imageForOne = new ImageIcon(getClass().getResource("/TheGame//YOUR.jpeg")); 
+    
     JFrame frame = new JFrame("Revan's Brick Breaker Game");
     JButton B2 = new JButton("WELCOME<3 CLICK TO START!");//the start button 
-    JButton B3 = new JButton("MUSIC!");//the music button 
+    JButton B3 = new JButton("MUSIC!");//the music button  
     JButton B = new JButton(imageForOne);//the background
-    
-    public void paint(Graphics g){
-                //borders /*
-        g.setColor(Color.white);
-        g.fillRect(0,0,3,592); // from right to left
-        g.fillRect(0,0,697,3);// top
-        g.fillRect(697,0,3,592);// from left to right  */
-               
-                 }
+   
     
     //constructor
     MainClass(){
@@ -50,8 +51,7 @@ import javax.sound.sampled.FloatControl;
     
        
     B.setBounds(10,10,700,600);
-    B.setFocusable(false);
-    B.addActionListener(this);
+   
     
     B3.setBounds(30,40,350,300);
     B3.setSize(100,45);
@@ -75,8 +75,8 @@ import javax.sound.sampled.FloatControl;
     
     
  
-    //the start buttun
- @Override
+    //the buttuns actions
+
  public void actionPerformed(ActionEvent e) {
   
   if(e.getSource()==B2) {
@@ -119,17 +119,10 @@ import javax.sound.sampled.FloatControl;
     Clip clip = AudioSystem.getClip();
     clip.open(audioIn);  
     FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-    gainControl.setValue(-25.0f); // Reduce volume by 10 decibels.
+    gainControl.setValue(-25.0f); // Reduce volume by 25 decibels.
     clip.start();
     clip.loop(Clip.LOOP_CONTINUOUSLY);
      
 }
- 
- // the Main 
-    public static void main(String[] args)throws Exception , MalformedURLException {
 
-                MainClass m = new MainClass();                  
-           
-               
-    }
 }
